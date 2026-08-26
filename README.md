@@ -1,6 +1,6 @@
 # Datos de los jeans
 
-## active: (boolean)
+### active: (boolean)
 
 ## image:(string)
 
