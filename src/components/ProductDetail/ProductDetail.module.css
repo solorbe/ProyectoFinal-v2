@@ -104,6 +104,16 @@
   line-height: 1.8;
 }
 
+.info button {
+  width: 100%;
+  border: 0;
+  border-radius: 11px;
+  padding: 14px;
+  color: white;
+  background: #69b0a2;
+  font-weight: 800;
+}
+
 .description {
   color: #6b7280;
   line-height: 1.7;

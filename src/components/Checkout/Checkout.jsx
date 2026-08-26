@@ -5,20 +5,61 @@ import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router";
 
 const Checkout = () => {
-  const [form, setForm] = useState();
+  const [form, setForm] = useState({});
   const [created, setCreated] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { cart, totalPrice } = useCart();
+  const { cart, totalPrice, clearCart } = useCart();
 
   const handleChange = ({ target }) =>
     setForm((current) => ({ ...current, [target.name]: target.value }));
 
   const navigate = useNavigate();
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   setLoading(true);
+  //   const newSell = {
+  //     items: cart,
+  //     buyer: {
+  //       name: form.name,
+  //       address: {
+  //         street: form.street,
+  //         number: form.number,
+  //         country: form.country,
+  //         zip: form.zip,
+  //       },
+  //       identification: form.identification,
+  //     },
+  //     totalAmount: totalPrice,
+  //     status: "APPROVE",
+  //     createdAt: new Date(),
+  //   };
+
+  //   createSell(newSell)
+  //     .then(() => {
+  //       setTimeout(() => {
+  //         navigate("/");
+  //       }, 2000);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+
+  //   setError("");
+  //   setCreated(null);
+  //   setLoading(false);
+  //   clearCart();
+  //   //vaciar carrito después de crear la venta
+  //   alert(
+  //     "Compra realizada con éxito. Serás redirigido a la página principal.",
+  //   );
+  // };
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
+    setError("");
+
     const newSell = {
       items: cart,
       buyer: {
@@ -36,29 +77,30 @@ const Checkout = () => {
       createdAt: new Date(),
     };
 
-    createSell(newSell)
-      .then(() => {
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    try {
+      await createSell(newSell);
 
-    setError("");
-    setCreated(null);
-    setLoading(false);
+      clearCart();
+
+      alert(
+        "Compra realizada con éxito. Serás redirigido a la página principal.",
+      );
+
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+      setError("Ocurrió un error al crear la compra.");
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
     <section className={styles.page}>
       <div className={styles.intro}>
-        <span>Finaliza tu compra</span>
-        {/* <h1>Finaliza tu compra</h1> */}
-        {/* <div>
-          <strong>💡 Importante</strong>
-          <p>Asegurate completar todos tus datos</p>
-        </div> */}
+        <h2>Finaliza tu compra</h2>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <label>
@@ -66,7 +108,7 @@ const Checkout = () => {
           <input
             name="name"
             onChange={handleChange}
-            placeholder="Peter Parker"
+            placeholder="escribi tu nombre"
             required
           />
         </label>
@@ -76,12 +118,16 @@ const Checkout = () => {
             <input
               name="street"
               onChange={handleChange}
-              placeholder="Calle Falsa"
+              placeholder="escribi tu calle"
             />
           </label>
           <label>
             Numero
-            <input name="number" onChange={handleChange} placeholder="1234" />
+            <input
+              name="number"
+              onChange={handleChange}
+              placeholder="escribi tu numero"
+            />
           </label>
         </div>
         <label>
@@ -89,28 +135,28 @@ const Checkout = () => {
           <input
             name="country"
             onChange={handleChange}
-            placeholder="Argentina"
+            placeholder="escribi tu pais"
           />
         </label>
         <label>
           Codigo postal
-          <input name="zip" onChange={handleChange} placeholder="ABC1234" />
+          <input
+            name="zip"
+            onChange={handleChange}
+            placeholder="escribi tu codigo postal"
+          />
         </label>
         <label>
           Identificacion
           <input
             name="identification"
             onChange={handleChange}
-            placeholder="123456789"
+            placeholder="escribi tu identificacion"
+            required
           />
         </label>
         {error && <p className={styles.error}>{error}</p>}
         <button disabled={loading}>{loading ? "Creando..." : "Comprar"}</button>
-        {created && (
-          <div className={styles.success}>
-            <strong>✓ Compra creada correctamente</strong>
-          </div>
-        )}
       </form>
     </section>
   );

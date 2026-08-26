@@ -27,7 +27,7 @@ const Cart = () => {
     <section className={styles.page}>
       <div className={styles.heading}>
         <div>
-          <h1>Carrito de compras</h1>
+          <h2>Carrito de compras</h2>
         </div>
         <button onClick={clearCart}>Vaciar carrito</button>
       </div>

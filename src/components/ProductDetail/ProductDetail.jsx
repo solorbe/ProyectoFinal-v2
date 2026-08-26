@@ -44,50 +44,17 @@ const ProductDetail = () => {
           <div className={styles.rating}>
             <span>{product.rating?.toFixed(1)}</span> ★★★★★
           </div>
-          <p className={styles.price}>$ {product.price.toFixed(2)}</p>
-          {/* <p className={styles.installments}>en 6 cuotas sin interés</p> */}
-          <hr />
-          <h2>Lo que tenés que saber</h2>
+          <p className={styles.price}>
+            ${" "}
+            {product.price.toLocaleString("es-AR", {
+              maximumFractionDigits: 0,
+            })}
+          </p>
           <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-          {/* <ul>
-            <li>
-              Marca: <strong>{product.brand || "Genérica"}</strong>
-            </li>
-            <li>
-              Categoría: <strong>{product.category}</strong>
-            </li>
-            <li>
-              Garantía:{" "}
-              <strong>
-                {product.warrantyInformation || "Garantía del vendedor"}
-              </strong>
-            </li>
-            <li>
-              Envío:{" "}
-              <strong>
-                {product.shippingInformation || "Entrega disponible"}
-              </strong>
-            </li>
-          </ul> */}
-          {/* <p className={styles.description}>{product.description}</p> */}
         </section>
-        <aside className={styles.buyBox}>
-          {/* <p className={styles.free}>Envío gratis</p> */}
-          {/* <strong>Recibilo entre 3 y 5 días</strong>
-          <p>Stock disponible</p>
-          <small>
-            Podés comprar hasta {Math.min(product.stock, 10)} unidades.
-          </small> */}
+        {/* <aside className={styles.buyBox}>
           <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-          {/* <div className={styles.protection}>
-            <span>✓</span>
-            <p>
-              <strong>Compra protegida</strong>
-              <br />
-              Recibí el producto que esperabas o te devolvemos tu dinero.
-            </p>
-          </div> */}
-        </aside>
+        </aside> */}
       </article>
     </>
   );

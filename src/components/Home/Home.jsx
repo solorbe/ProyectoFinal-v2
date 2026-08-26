@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <h1>Productos disponibles</h1>
+        <h2>Productos disponibles</h2>
       </div>
       <section id="productos" className={styles.catalog}>
         <Products products={products} isLoading={isLoading} error={error} />
