@@ -1,0 +1,189 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  color: #6b7280;
+  font-size: 0.82rem;
+  margin-bottom: 22px;
+}
+
+.breadcrumbs a {
+  color: #6d28d9;
+  text-decoration: none;
+}
+
+.breadcrumbs strong {
+  color: #374151;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(300px, 1.05fr) minmax(300px, 0.9fr) 290px;
+  gap: 35px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  padding: 35px;
+  text-align: left;
+}
+
+.gallery {
+  min-height: 500px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 460px;
+  object-fit: contain;
+}
+
+.discount {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 1;
+  padding: 6px 9px;
+  border-radius: 8px;
+  color: white;
+  background: #ef4444;
+  font-weight: 800;
+}
+
+.condition {
+  color: #6b7280;
+  font-size: 0.82rem;
+}
+
+.info h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 9px 0 12px;
+}
+
+.rating {
+  color: #f59e0b;
+  font-size: 0.88rem;
+}
+
+.rating span {
+  color: #6d28d9;
+}
+
+.price {
+  font-size: 2.35rem;
+  color: #111827;
+  margin-top: 22px;
+}
+
+.installments,
+.free {
+  color: #059669;
+  font-weight: 700;
+}
+
+.info hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 25px 0;
+}
+
+.info h2 {
+  font-size: 1.08rem;
+}
+
+.info ul {
+  padding-left: 20px;
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.description {
+  color: #6b7280;
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+.buyBox {
+  align-self: start;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.buyBox p {
+  margin: 0 0 8px;
+}
+
+.buyBox small {
+  display: block;
+  color: #6b7280;
+  margin: 8px 0 20px;
+}
+
+.buyBox button {
+  width: 100%;
+  border: 0;
+  border-radius: 11px;
+  padding: 14px;
+  background: #6d28d9;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.protection {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.protection span,
+.protection strong {
+  color: #6d28d9;
+}
+
+.state {
+  background: white;
+  border: 1px solid #e5e7eb;
+  padding: 60px;
+  border-radius: 18px;
+  text-align: center;
+}
+
+@media (max-width: 1050px) {
+  .detail {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .buyBox {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .detail {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .gallery {
+    min-height: 320px;
+  }
+
+  .gallery img {
+    height: 300px;
+  }
+
+  .buyBox {
+    grid-column: 1;
+  }
+}

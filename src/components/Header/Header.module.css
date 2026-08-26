@@ -1,0 +1,99 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav {
+  width: min(1180px, calc(100% - 32px));
+  min-height: 72px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  text-decoration: none;
+}
+
+.brand {
+  color: #69b0a2;
+  font-size: 1.5rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.link {
+  color: #69b0a2;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 650;
+  padding: 10px 13px;
+  border-radius: 10px;
+}
+
+.link:hover,
+.active {
+  color: #1e5248;
+  background: #f5f3ff;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #69b0a2;
+  color: white;
+}
+
+.cart:hover {
+  background: #1e5248;
+  color: white;
+}
+
+.badge {
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #f97316;
+  color: white;
+  font-size: 0.72rem;
+}
+
+@media (max-width: 650px) {
+  .nav {
+    padding: 12px 0;
+    align-items: flex-start;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .link {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .brand {
+    margin-top: 6px;
+  }
+}
