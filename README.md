@@ -1,24 +1,24 @@
 # Datos de los jeans
 
-## active: (boolean)
+### active: (boolean)
 
-## image:(string)
+### image:(string)
 
-## price (int64)
+### price (int64)
 
-## rating (double)
+### rating (double)
 
-## stock (int64)
+### stock (int64)
 
-## thumbnail (string)
+### thumbnail (string)
 
-## title (string)
+### title (string)
 
 # Datos de la orden de compra
 
-## name (string)
+### name (string)
 
-## address
+### address
 
 ### street (string)
 
@@ -30,8 +30,8 @@
 
 ### identification (string)
 
-## totalAmount (double)
+### totalAmount (double)
 
-## status (string)
+### status (string)
 
-## createdAt (timestamp)
+###  createdAt (timestamp)

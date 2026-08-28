@@ -3,6 +3,7 @@ import styles from "./Checkout.module.css";
 import { createSell } from "../../services/products.service";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
   const [form, setForm] = useState({});
@@ -81,10 +82,15 @@ const Checkout = () => {
       await createSell(newSell);
 
       clearCart();
-
-      alert(
-        "Compra realizada con éxito. Serás redirigido a la página principal.",
-      );
+      Swal.fire({
+        title: "Tu compra se registró correctamente",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        confirmButtonColor: "#69b0a2",
+        customClass: {
+          title: styles.alertTitle,
+        },
+      });
 
       setTimeout(() => {
         navigate("/");

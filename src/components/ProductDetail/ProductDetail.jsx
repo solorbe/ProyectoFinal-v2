@@ -24,8 +24,6 @@ const ProductDetail = () => {
     <>
       <div className={styles.breadcrumbs}>
         <Link to="/">Inicio</Link>
-        {/* <span>/</span> */}
-        {/* <span>{product.category}</span> */}
         <span>/</span>
         <strong>{product.title}</strong>
       </div>
@@ -52,9 +50,6 @@ const ProductDetail = () => {
           </p>
           <button onClick={() => addToCart(product)}>Agregar al carrito</button>
         </section>
-        {/* <aside className={styles.buyBox}>
-          <button onClick={() => addToCart(product)}>Agregar al carrito</button>
-        </aside> */}
       </article>
     </>
   );
