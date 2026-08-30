@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
 
 const CartContext = createContext(null); //compartir información entre componentes sin tener que pasar props manualmente por todos los componentes intermedios

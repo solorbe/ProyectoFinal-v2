@@ -18,7 +18,6 @@ const ProductCard = ({ product }) => {
           ★ {product.rating?.toFixed(1)}{" "}
           <span> Stock disponible: {product.stock}</span>
         </div>
-        {/* <p className={styles.price}>$ {product.price}</p> */}
         <p className={styles.price}>
           ${" "}
           {product.price.toLocaleString("es-AR", {
